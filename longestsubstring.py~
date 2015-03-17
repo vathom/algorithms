@@ -1,0 +1,32 @@
+def longestsubstring(A):
+    length = len(A)
+    longest = 1
+    newlong = 1
+    startpos = 0
+    i = startpos+1
+    while i < length:
+        j = i-1
+        exists = False
+        while j >= startpos:
+            if A[i] == A[j]:
+                exists = True
+                startpos = j+1
+                i = startpos+1
+                break
+            j-=1
+        if not exists:
+            newlong+=1
+            i+=1
+            longest = max(longest, newlong)
+        else:
+            newlong = 1
+        
+    return longest
+            
+
+
+    
+
+array = ['a','b','c','a','m','d','e','f','t','g','h']#['a','b','a','c','d','e', 'a', 'b','c','e']
+print longestsubstring(array)
+    

@@ -1,0 +1,59 @@
+public class PopularItem
+{
+    public static void main(String[] args)
+    {
+	int[] arr = new int[] {1,2,3,4,4,4,4,5,6,7,8,9};
+	int pop = FindPopularItem(arr);
+	System.out.println(
+    }
+    
+    //Given a sorted array of natural numbers, find the number which is popular.
+    //Popular item is one thats present n/4 times in the array. n is # of items.
+    //1,2,3,4,4,4,5,6,6,7
+    public static int findPopularItem(int[] input)
+    {
+        if(input == null)
+	    {
+		return -1;
+	    }
+        
+        if(input.Count == 0)
+	    {
+		return -1;
+	    }
+        
+        int popularity = input.Length / 4;
+        int index = popularity;
+        int count = 1;
+        
+        while(index <= input.Length)
+	    {
+		int val = input[index];
+		int left = index-1;
+		int right = index+1;
+            
+		while(input[left] == input[index])
+		    {
+			count++;
+			if(count >= popularity)
+			    {
+				return input[index];
+			    }
+			left--;
+		    }
+            
+		while(input[right] == input[index])
+		    {
+			count++;
+			if(count >= popularity)
+			    {    
+				return input[index];
+			    }
+			right++;
+		    }
+            
+		count = 1;
+		index = 2*index;
+	    }
+    }
+}

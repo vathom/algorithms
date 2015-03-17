@@ -1,0 +1,22 @@
+def longestcommonsubstr(A, B):
+    i = 0
+    j = 0
+    longest = 0
+    longtillnow = 0
+    while i < len(A):
+        for j in range(i+1,len(A)):
+            if substrexists(B,A,i,j):
+                if longtillnow < j-i+1:
+                    longtillnow = j-i+1
+            if longest < longtillnow:
+                longest = longtillnow
+        i+=1
+    print longest
+
+def substrexists(B, A, i, j):
+    if len(B) < j-i+1:
+        return False
+    k=0
+    found = True
+    while 
+longestcommonsubstr(A,B)

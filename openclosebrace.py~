@@ -1,0 +1,3 @@
+# ()()(), ()(()), (())(), ((()))
+def printbraces(int count):
+    
